@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+TRS REEL TEMPLATE v1
+9:16 — 1080×1920px
+10-slide vertical reel — thesis-driven argumentative format
+Color system: PRIMARY owns slides 1,3,5,7 | CONTRAST owns slide 6,8 | VOLT owns 2,4,9 | Dark owns 10
+-->
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{margin:0;padding:0;background:#0a0a0a}
+
+#slide-render{
+  width:1080px;
+  height:1920px;
+  position:relative;
+  overflow:hidden;
+  background:#0a0a0a;
+  font-family:'Inter',sans-serif;
+}
+
+.grain{position:absolute;inset:0;z-index:50;pointer-events:none;opacity:0.45;mix-blend-mode:overlay}
+.slide{position:absolute;inset:0;display:none;flex-direction:column}
+.slide.active{display:flex}
+
+/* GLOBAL CHROME */
+.bug{position:absolute;top:72px;left:64px;z-index:20;font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:10px;color:#AAFF00}
+.sc{position:absolute;bottom:56px;right:64px;font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(170,255,0,0.15);letter-spacing:4px;z-index:20;line-height:1}
+.volt-bar{width:120px;height:8px;background:#AAFF00}
+.volt-bar-v{width:8px;background:#AAFF00}
+.edge-bar-l{position:absolute;left:0;top:0;bottom:0;width:12px}
+.edge-bar-r{position:absolute;right:0;top:0;bottom:0;width:12px}
+
+/* ══════════════════════════════════════════
+   SLIDE 1 — HOOK
+   Full bleed PRIMARY, provocative statement/question
+   ══════════════════════════════════════════ */
+#s1{position:relative}
+#s1 .bg-primary{position:absolute;inset:0;background:{{PRIMARY_COLOR}}}
+#s1 .bg-primary-mid{position:absolute;inset:0;background:{{PRIMARY_COLOR_MID}};clip-path:polygon(0 55%,100% 35%,100% 100%,0 100%)}
+#s1 .bg-dark{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,0.95) 100%)}
+#s1 .ghost-team{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:520px;line-height:1;color:#fff;opacity:0.04;right:-40px;bottom:-60px;letter-spacing:-20px;pointer-events:none}
+#s1 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:64px 64px 160px}
+#s1 .flag{font-size:96px;margin-bottom:32px;display:block}
+#s1 .eyebrow{font-size:28px;letter-spacing:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;font-weight:500;margin-bottom:28px}
+#s1 .hook{font-family:'Bebas Neue',sans-serif;font-size:148px;line-height:0.88;color:#fff;letter-spacing:-2px;margin-bottom:40px}
+#s1 .hook span{color:#AAFF00}
+#s1 .volt-bar{margin-bottom:0}
+
+/* ══════════════════════════════════════════
+   SLIDE 2 — THE CLAIM
+   Dark + volt eyebrow, bold thesis statement
+   ══════════════════════════════════════════ */
+#s2{background:#0a0a0a;position:relative}
+#s2 .accent-top{position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#AAFF00 0%,transparent 100%)}
+#s2 .ghost-num{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:680px;color:#AAFF00;opacity:0.03;right:-60px;top:50%;transform:translateY(-50%);letter-spacing:-20px;pointer-events:none;line-height:1}
+#s2 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:center;padding:160px 64px 120px}
+#s2 .eyebrow{font-size:26px;letter-spacing:12px;color:#AAFF00;text-transform:uppercase;font-weight:700;margin-bottom:48px}
+#s2 .volt-bar{margin-bottom:48px}
+#s2 .claim{font-family:'Bebas Neue',sans-serif;font-size:112px;line-height:0.9;color:#fff;letter-spacing:-1px;margin-bottom:48px}
+#s2 .claim span{color:#AAFF00}
+#s2 .support{font-size:44px;color:rgba(255,255,255,0.75);font-weight:300;line-height:1.55;max-width:900px}
+
+/* ══════════════════════════════════════════
+   SLIDE 3 — EVIDENCE 1
+   Dark + PRIMARY left edge bar, giant stat
+   ══════════════════════════════════════════ */
+#s3{background:#0a0a0a;position:relative}
+#s3 .edge-bar-l{background:{{PRIMARY_COLOR}}}
+#s3 .ghost-stat{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:580px;color:{{PRIMARY_COLOR}};opacity:0.05;right:-40px;bottom:-40px;letter-spacing:-20px;pointer-events:none;line-height:1}
+#s3 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:center;padding:160px 64px 120px 96px}
+#s3 .eyebrow{font-size:26px;letter-spacing:12px;color:{{PRIMARY_COLOR}};text-transform:uppercase;font-weight:700;margin-bottom:48px}
+#s3 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:340px;line-height:0.82;color:#AAFF00;letter-spacing:-16px;margin-bottom:0}
+#s3 .stat-unit{font-family:'Bebas Neue',sans-serif;font-size:88px;color:#fff;letter-spacing:4px;display:block;margin-top:12px;line-height:1}
+#s3 .divider{width:100%;height:2px;background:#1a1a1a;margin:48px 0}
+#s3 .context{font-size:44px;color:rgba(255,255,255,0.8);font-weight:300;line-height:1.55}
+#s3 .source{font-size:26px;color:rgba(170,255,0,0.45);letter-spacing:4px;text-transform:uppercase;margin-top:24px;font-weight:600}
+
+/* ══════════════════════════════════════════
+   SLIDE 4 — EVIDENCE 2
+   Dark + volt accents, historical comparison
+   ══════════════════════════════════════════ */
+#s4{background:#0a0a0a;position:relative}
+#s4 .accent-top{position:absolute;top:0;left:0;right:0;height:6px;background:#AAFF00}
+#s4 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:center;padding:160px 64px 120px}
+#s4 .eyebrow{font-size:26px;letter-spacing:12px;color:#AAFF00;text-transform:uppercase;font-weight:700;margin-bottom:36px}
+#s4 .headline{font-family:'Bebas Neue',sans-serif;font-size:108px;line-height:0.9;color:#fff;letter-spacing:-1px;margin-bottom:48px}
+#s4 .headline span{color:#AAFF00}
+#s4 .comparison{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;padding:48px 0;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+#s4 .comp-val{font-family:'Bebas Neue',sans-serif;font-size:200px;line-height:1;color:#AAFF00;letter-spacing:-8px}
+#s4 .comp-vs{font-family:'Bebas Neue',sans-serif;font-size:72px;color:rgba(255,255,255,0.2);letter-spacing:4px}
+#s4 .comp-label{font-size:30px;color:rgba(255,255,255,0.5);letter-spacing:6px;text-transform:uppercase;text-align:center;margin-top:16px;font-weight:500}
+#s4 .comp-block{display:flex;flex-direction:column;align-items:center}
+#s4 .body{font-size:42px;color:rgba(255,255,255,0.75);font-weight:300;line-height:1.55}
+
+/* ══════════════════════════════════════════
+   SLIDE 5 — EVIDENCE 3
+   Dark + ghost PRIMARY stat, hidden number
+   ══════════════════════════════════════════ */
+#s5{background:#0a0a0a;position:relative}
+#s5 .ghost-big{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:660px;color:{{PRIMARY_COLOR}};opacity:0.06;left:50%;top:50%;transform:translate(-50%,-50%);letter-spacing:-20px;pointer-events:none;line-height:1;white-space:nowrap}
+#s5 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:center;padding:160px 64px 120px}
+#s5 .eyebrow{font-size:26px;letter-spacing:12px;color:rgba(170,255,0,0.55);text-transform:uppercase;font-weight:700;margin-bottom:48px}
+#s5 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:380px;line-height:0.82;color:#AAFF00;letter-spacing:-18px}
+#s5 .stat-unit{font-family:'Bebas Neue',sans-serif;font-size:92px;color:#fff;letter-spacing:2px;display:block;margin-top:16px;line-height:1}
+#s5 .body{font-size:44px;color:rgba(255,255,255,0.8);font-weight:300;line-height:1.55;margin-top:48px;padding-top:48px;border-top:2px solid #1a1a1a}
+
+/* ══════════════════════════════════════════
+   SLIDE 6 — THE COUNTER
+   Dark + CONTRAST left edge bar, steelman
+   ══════════════════════════════════════════ */
+#s6{background:#0a0a0a;position:relative}
+#s6 .edge-bar-l{background:{{CONTRAST_COLOR}}}
+#s6 .ghost-counter{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:320px;color:{{CONTRAST_COLOR}};opacity:0.05;right:-20px;bottom:120px;letter-spacing:-8px;pointer-events:none;line-height:1;writing-mode:vertical-rl}
+#s6 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:center;padding:160px 64px 120px 96px}
+#s6 .eyebrow{font-size:26px;letter-spacing:12px;color:{{CONTRAST_COLOR}};text-transform:uppercase;font-weight:700;margin-bottom:36px}
+#s6 .volt-bar{background:{{CONTRAST_COLOR}};margin-bottom:48px}
+#s6 .statement{font-family:'Bebas Neue',sans-serif;font-size:108px;line-height:0.9;color:#fff;letter-spacing:-1px;margin-bottom:48px}
+#s6 .statement span{color:{{CONTRAST_COLOR}}}
+#s6 .support{font-size:44px;color:rgba(255,255,255,0.7);font-weight:300;line-height:1.55}
+#s6 .counter-tag{display:inline-block;margin-top:48px;font-size:24px;letter-spacing:8px;color:{{CONTRAST_COLOR}};border:2px solid {{CONTRAST_COLOR}};padding:16px 32px;text-transform:uppercase;font-weight:700}
+
+/* ══════════════════════════════════════════
+   SLIDE 7 — THE REBUTTAL
+   PRIMARY diagonal slash, primary reclaims
+   ══════════════════════════════════════════ */
+#s7{position:relative}
+#s7 .bg-dark{position:absolute;inset:0;background:#0a0a0a}
+#s7 .bg-slash{position:absolute;inset:0;background:{{PRIMARY_COLOR}};clip-path:polygon(0 0,100% 0,100% 28%,0 52%)}
+#s7 .bg-slash-mid{position:absolute;inset:0;background:{{PRIMARY_COLOR_MID}};clip-path:polygon(0 0,100% 0,100% 22%,0 44%)}
+#s7 .bg-dark-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 40%)}
+#s7 .ghost-rebuttal{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:480px;color:#AAFF00;opacity:0.04;right:-40px;bottom:-40px;letter-spacing:-16px;pointer-events:none;line-height:1}
+#s7 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:64px 64px 140px}
+#s7 .eyebrow{font-size:26px;letter-spacing:12px;color:#AAFF00;text-transform:uppercase;font-weight:700;margin-bottom:36px}
+#s7 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:280px;line-height:0.85;color:#AAFF00;letter-spacing:-12px;margin-bottom:8px}
+#s7 .stat-unit{font-family:'Bebas Neue',sans-serif;font-size:80px;color:#fff;letter-spacing:2px;display:block;margin-bottom:40px;line-height:1}
+#s7 .divider{width:100%;height:2px;background:rgba(255,255,255,0.12);margin-bottom:40px}
+#s7 .body{font-size:44px;color:#fff;font-weight:300;line-height:1.55}
+#s7 .body span{color:#AAFF00;font-weight:600}
+
+/* ══════════════════════════════════════════
+   SLIDE 8 — IMPLICATION
+   Dark + split PRIMARY/CONTRAST, bracket context
+   ══════════════════════════════════════════ */
+#s8{background:#0a0a0a;position:relative}
+#s8 .split-primary{position:absolute;top:0;left:0;bottom:0;width:10px;background:{{PRIMARY_COLOR}}}
+#s8 .split-contrast{position:absolute;top:0;right:0;bottom:0;width:10px;background:{{CONTRAST_COLOR}}}
+#s8 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:center;padding:160px 80px 120px}
+#s8 .eyebrow{font-size:26px;letter-spacing:12px;color:#AAFF00;text-transform:uppercase;font-weight:700;margin-bottom:36px}
+#s8 .headline{font-family:'Bebas Neue',sans-serif;font-size:112px;line-height:0.9;color:#fff;letter-spacing:-1px;margin-bottom:48px}
+#s8 .headline span{color:#AAFF00}
+#s8 .fixture-block{background:#111;border:1px solid #222;padding:48px;margin-bottom:40px}
+#s8 .fixture-label{font-size:22px;letter-spacing:8px;color:#AAFF00;text-transform:uppercase;font-weight:700;margin-bottom:20px}
+#s8 .fixture-match{font-family:'Bebas Neue',sans-serif;font-size:72px;color:#fff;letter-spacing:2px;line-height:1}
+#s8 .fixture-date{font-size:32px;color:rgba(255,255,255,0.45);letter-spacing:4px;margin-top:12px;font-weight:500}
+#s8 .stakes{font-size:42px;color:rgba(255,255,255,0.75);font-weight:300;line-height:1.6}
+#s8 .stakes span{color:#AAFF00;font-weight:600}
+
+/* ══════════════════════════════════════════
+   SLIDE 9 — VERDICT
+   Dark + volt, TRS delivers the final word
+   ══════════════════════════════════════════ */
+#s9{background:#0a0a0a;position:relative}
+#s9 .accent-top{position:absolute;top:0;left:0;right:0;height:8px;background:#AAFF00}
+#s9 .ghost-verdict{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:520px;color:#AAFF00;opacity:0.03;left:50%;top:50%;transform:translate(-50%,-50%);letter-spacing:-16px;pointer-events:none;line-height:1;white-space:nowrap}
+#s9 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:center;padding:160px 64px 120px}
+#s9 .eyebrow{font-size:26px;letter-spacing:12px;color:#AAFF00;text-transform:uppercase;font-weight:700;margin-bottom:48px}
+#s9 .volt-bar{margin-bottom:48px;width:160px;height:10px}
+#s9 .verdict{font-family:'Bebas Neue',sans-serif;font-size:132px;line-height:0.88;color:#fff;letter-spacing:-2px;margin-bottom:48px}
+#s9 .verdict span{color:#AAFF00}
+#s9 .divider{width:100%;height:2px;background:#1a1a1a;margin-bottom:48px}
+#s9 .so-tag{font-size:32px;letter-spacing:8px;color:rgba(170,255,0,0.45);text-transform:uppercase;font-weight:600}
+
+/* ══════════════════════════════════════════
+   SLIDE 10 — SIGN-OFF
+   Pure brand, dark + volt, no team allegiance
+   ══════════════════════════════════════════ */
+#s10{background:#0a0a0a;position:relative}
+#s10 .ghost-trs{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:900px;color:#AAFF00;opacity:0.04;left:50%;top:50%;transform:translate(-50%,-50%);letter-spacing:-40px;pointer-events:none;line-height:0.85;white-space:nowrap}
+#s10 .content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 64px}
+#s10 .third{font-family:'Bebas Neue',sans-serif;font-size:200px;color:#AAFF00;letter-spacing:20px;line-height:1;width:100%}
+#s10 .rail{font-family:'Bebas Neue',sans-serif;font-size:200px;color:#AAFF00;letter-spacing:20px;line-height:1;margin-top:-28px;width:100%}
+#s10 .sports{font-size:30px;letter-spacing:20px;color:rgba(170,255,0,0.28);text-transform:uppercase;margin-top:20px;font-weight:500}
+#s10 .rule{width:120px;height:4px;background:rgba(170,255,0,0.18);margin:40px auto}
+#s10 .tag{font-size:32px;letter-spacing:12px;color:rgba(170,255,0,0.45);text-transform:uppercase;font-weight:700}
+#s10 .handle{font-family:'Bebas Neue',sans-serif;font-size:60px;color:rgba(170,255,0,0.32);letter-spacing:6px;margin-top:16px}
+#s10 .so-line{font-size:48px;color:#fff;font-weight:300;font-style:italic;margin-top:56px;letter-spacing:0.5px;line-height:1.45;max-width:900px}
+</style>
+</head>
+<body>
+<div id="slide-render">
+
+<svg class="grain" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+<filter id="gf"><feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
+<feColorMatrix type="saturate" values="0"/><feBlend in="SourceGraphic" mode="overlay"/></filter>
+<rect width="100%" height="100%" filter="url(#gf)" opacity="0.38"/>
+</svg>
+
+<!-- ══ SLIDE 1: HOOK ══ -->
+<div class="slide {{S1_ACTIVE}}" id="s1">
+  <div class="bg-primary"></div>
+  <div class="bg-primary-mid"></div>
+  <div class="bg-dark"></div>
+  <div class="ghost-team">{{PRIMARY_CODE}}</div>
+  <div class="bug">SPORT. DECODED.</div>
+  <div class="content">
+    <span class="flag">{{PRIMARY_FLAG}}</span>
+    <div class="eyebrow">{{HOOK_EYEBROW}}</div>
+    <div class="hook">{{HOOK_LINE_1}}<br><span>{{HOOK_LINE_2}}</span><br>{{HOOK_LINE_3}}</div>
+    <div class="volt-bar" style="width:120px;height:8px;background:#AAFF00;margin-top:40px"></div>
+  </div>
+  <div class="sc">01 / 10</div>
+</div>
+
+<!-- ══ SLIDE 2: THE CLAIM ══ -->
+<div class="slide {{S2_ACTIVE}}" id="s2">
+  <div class="accent-top"></div>
+  <div class="ghost-num">2</div>
+  <div class="bug">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{CLAIM_EYEBROW}}</div>
+    <div class="volt-bar" style="width:120px;height:8px;background:#AAFF00"></div>
+    <div class="claim" style="margin-top:48px">{{CLAIM_LINE_1}}<br><span>{{CLAIM_LINE_2}}</span><br>{{CLAIM_LINE_3}}</div>
+    <div class="support">{{CLAIM_SUPPORT}}</div>
+  </div>
+  <div class="sc">02 / 10</div>
+</div>
+
+<!-- ══ SLIDE 3: EVIDENCE 1 ══ -->
+<div class="slide {{S3_ACTIVE}}" id="s3">
+  <div class="edge-bar-l"></div>
+  <div class="ghost-stat">{{EV1_NUMBER}}</div>
+  <div class="bug" style="left:96px">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{EV1_EYEBROW}}</div>
+    <div class="stat-num">{{EV1_NUMBER}}</div>
+    <div class="stat-unit">{{EV1_UNIT}}</div>
+    <div class="divider"></div>
+    <div class="context">{{EV1_CONTEXT}}</div>
+    <div class="source">{{EV1_SOURCE}}</div>
+  </div>
+  <div class="sc">03 / 10</div>
+</div>
+
+<!-- ══ SLIDE 4: EVIDENCE 2 ══ -->
+<div class="slide {{S4_ACTIVE}}" id="s4">
+  <div class="accent-top"></div>
+  <div class="bug">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{EV2_EYEBROW}}</div>
+    <div class="headline">{{EV2_HEADLINE_1}}<br><span>{{EV2_HEADLINE_2}}</span></div>
+    <div class="comparison">
+      <div class="comp-block">
+        <div class="comp-val">{{EV2_COMPARISON_A}}</div>
+        <div class="comp-label">{{EV2_LABEL_A}}</div>
+      </div>
+      <div class="comp-vs">VS</div>
+      <div class="comp-block">
+        <div class="comp-val" style="color:rgba(255,255,255,0.35)">{{EV2_COMPARISON_B}}</div>
+        <div class="comp-label">{{EV2_LABEL_B}}</div>
+      </div>
+    </div>
+    <div class="body">{{EV2_BODY}}</div>
+  </div>
+  <div class="sc">04 / 10</div>
+</div>
+
+<!-- ══ SLIDE 5: EVIDENCE 3 ══ -->
+<div class="slide {{S5_ACTIVE}}" id="s5">
+  <div class="ghost-big">{{EV3_NUMBER}}</div>
+  <div class="bug">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{EV3_EYEBROW}}</div>
+    <div class="stat-num">{{EV3_NUMBER}}</div>
+    <div class="stat-unit">{{EV3_UNIT}}</div>
+    <div class="body">{{EV3_BODY}}</div>
+  </div>
+  <div class="sc">05 / 10</div>
+</div>
+
+<!-- ══ SLIDE 6: THE COUNTER ══ -->
+<div class="slide {{S6_ACTIVE}}" id="s6">
+  <div class="edge-bar-l"></div>
+  <div class="ghost-counter">BUT</div>
+  <div class="bug" style="left:96px">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{COUNTER_EYEBROW}}</div>
+    <div class="volt-bar" style="width:120px;height:8px"></div>
+    <div class="statement" style="margin-top:48px">{{COUNTER_LINE_1}}<br><span>{{COUNTER_LINE_2}}</span></div>
+    <div class="support">{{COUNTER_SUPPORT}}</div>
+    <div class="counter-tag">{{CONTRAST_TEAM}}</div>
+  </div>
+  <div class="sc">06 / 10</div>
+</div>
+
+<!-- ══ SLIDE 7: THE REBUTTAL ══ -->
+<div class="slide {{S7_ACTIVE}}" id="s7">
+  <div class="bg-dark"></div>
+  <div class="bg-slash"></div>
+  <div class="bg-slash-mid"></div>
+  <div class="bg-dark-overlay"></div>
+  <div class="ghost-rebuttal">{{EV1_NUMBER}}</div>
+  <div class="bug">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{REBUTTAL_EYEBROW}}</div>
+    <div class="stat-num">{{REBUTTAL_STAT}}</div>
+    <div class="stat-unit">{{REBUTTAL_UNIT}}</div>
+    <div class="divider"></div>
+    <div class="body">{{REBUTTAL_BODY}}</div>
+  </div>
+  <div class="sc">07 / 10</div>
+</div>
+
+<!-- ══ SLIDE 8: IMPLICATION ══ -->
+<div class="slide {{S8_ACTIVE}}" id="s8">
+  <div class="split-primary"></div>
+  <div class="split-contrast"></div>
+  <div class="bug">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{IMPL_EYEBROW}}</div>
+    <div class="headline">{{IMPL_HEADLINE_1}}<br><span>{{IMPL_HEADLINE_2}}</span></div>
+    <div class="fixture-block">
+      <div class="fixture-label">NEXT UP</div>
+      <div class="fixture-match">{{IMPL_FIXTURE}}</div>
+      <div class="fixture-date">{{IMPL_DATE}}</div>
+    </div>
+    <div class="stakes">{{IMPL_STAKES}}</div>
+  </div>
+  <div class="sc">08 / 10</div>
+</div>
+
+<!-- ══ SLIDE 9: VERDICT ══ -->
+<div class="slide {{S9_ACTIVE}}" id="s9">
+  <div class="accent-top"></div>
+  <div class="ghost-verdict">TRS</div>
+  <div class="bug">SPORT. DECODED.</div>
+  <div class="content">
+    <div class="eyebrow">{{VERDICT_EYEBROW}}</div>
+    <div class="volt-bar"></div>
+    <div class="verdict" style="margin-top:0">{{VERDICT_LINE}}<br><span>{{VERDICT_VOLT}}</span></div>
+    <div class="divider"></div>
+    <div class="so-tag">Sport. Decoded.</div>
+  </div>
+  <div class="sc">09 / 10</div>
+</div>
+
+<!-- ══ SLIDE 10: SIGN-OFF ══ -->
+<div class="slide {{S10_ACTIVE}}" id="s10">
+  <div class="ghost-trs">TRS</div>
+  <div class="content">
+    <div class="third">THIRD</div>
+    <div class="rail">RAIL</div>
+    <div class="sports">Sports</div>
+    <div class="rule"></div>
+    <div class="tag">Sport. Decoded.</div>
+    <div class="handle">@thirdrailsports</div>
+    <div class="so-line">{{SO_LINE}}</div>
+  </div>
+  <div class="sc" style="color:rgba(170,255,0,0.1)">10 / 10</div>
+</div>
+
+</div>
+</body>
+</html>
