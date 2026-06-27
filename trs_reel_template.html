@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-TRS REEL TEMPLATE v3
+TRS REEL TEMPLATE v4
 9:16 — 1080×1920px
 Changes from v2:
 - S1: JP slot replaced with thesis type badge (top-right pill)
@@ -177,20 +177,73 @@ body{margin:0;padding:0;background:#0a0a0a}
 
 /* ══ SLIDE 10: SIGN-OFF ══ */
 #s10{background:#0a0a0a;position:relative}
-/* so-wrap: fills slide minus platform section at bottom */
-#s10 .so-wrap{position:absolute;top:0;left:0;right:0;bottom:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
-/* Ghost: true center of 9:16 canvas */
-#s10 .so-ghost{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:820px;color:#AAFF00;opacity:0.05;pointer-events:none;letter-spacing:-40px;line-height:0.85;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;user-select:none;z-index:1}
-#s10 .so-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;width:100%}
-#s10 .so-third{font-family:'Bebas Neue',sans-serif;font-size:156px;color:#AAFF00;letter-spacing:18px;line-height:1;text-align:center;width:100%}
-#s10 .so-rail{font-family:'Bebas Neue',sans-serif;font-size:156px;color:#AAFF00;letter-spacing:18px;line-height:1;margin-top:-20px;text-align:center;width:100%}
-#s10 .so-sports{font-size:26px;letter-spacing:18px;color:rgba(170,255,0,0.28);text-transform:uppercase;margin-top:14px;font-weight:500;font-family:'Inter',sans-serif}
-#s10 .so-rule{width:96px;height:3px;background:rgba(170,255,0,0.18);margin:24px auto}
-#s10 .so-tag{font-size:26px;letter-spacing:10px;color:rgba(170,255,0,0.42);text-transform:uppercase;font-weight:600;font-family:'Inter',sans-serif}
-#s10 .so-handle{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(170,255,0,0.32);letter-spacing:5px;margin-top:10px}
-#s10 .so-line{font-size:44px;color:#ffffff;font-weight:300;font-style:italic;padding-top:88px;letter-spacing:0.5px;width:860px;text-align:center;line-height:1.45;font-family:'Inter',sans-serif}
-/* Platform block — fixed bottom */
-#s10 .platform-block{position:absolute;bottom:64px;left:80px;right:80px;display:flex;flex-direction:column;align-items:center;z-index:5}
+/* Ghost: absolute center of full 1080×1920 canvas */
+#s10 .so-ghost{
+  position:absolute;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:820px;
+  color:#AAFF00;
+  opacity:0.05;
+  pointer-events:none;
+  letter-spacing:-40px;
+  line-height:0.85;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;
+  user-select:none;
+  z-index:1
+}
+/* Brand block: vertically centered within the ghost letterforms — sits inside TRS */
+#s10 .so-wrap{
+  position:absolute;
+  top:0;left:0;right:0;
+  bottom:280px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:2;
+}
+#s10 .so-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  width:100%;
+}
+#s10 .so-third{font-family:'Bebas Neue',sans-serif;font-size:160px;color:#AAFF00;letter-spacing:20px;line-height:1;text-align:center;width:100%}
+#s10 .so-rail{font-family:'Bebas Neue',sans-serif;font-size:160px;color:#AAFF00;letter-spacing:20px;line-height:1;margin-top:-16px;text-align:center;width:100%}
+#s10 .so-sports{font-size:28px;letter-spacing:20px;color:rgba(170,255,0,0.28);text-transform:uppercase;margin-top:18px;font-weight:500;font-family:'Inter',sans-serif}
+#s10 .so-rule{width:96px;height:3px;background:rgba(170,255,0,0.18);margin:28px auto}
+#s10 .so-tag{font-size:28px;letter-spacing:10px;color:rgba(170,255,0,0.42);text-transform:uppercase;font-weight:600;font-family:'Inter',sans-serif}
+#s10 .so-handle{font-family:'Bebas Neue',sans-serif;font-size:52px;color:rgba(170,255,0,0.32);letter-spacing:5px;margin-top:12px}
+/* SO_LINE: clear breathing room below brand block, well clear of TRS ghost */
+#s10 .so-line{
+  font-size:48px;
+  color:#ffffff;
+  font-weight:300;
+  font-style:italic;
+  margin-top:120px;
+  letter-spacing:0.5px;
+  width:860px;
+  text-align:center;
+  line-height:1.45;
+  font-family:'Inter',sans-serif;
+}
+/* Platform block — pulled up from very bottom edge */
+#s10 .platform-block{
+  position:absolute;
+  bottom:120px;
+  left:80px;right:80px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  z-index:5;
+}
+#s10 .platform-rule{width:100%;height:2px;background:rgba(255,255,255,0.08);margin-bottom:48px}
+#s10 .platform-label{font-size:24px;letter-spacing:10px;color:rgba(170,255,0,0.3);text-transform:uppercase;font-weight:600;font-family:'Inter',sans-serif;margin-bottom:32px}
+#s10 .platform-row{font-family:'Bebas Neue',sans-serif;font-size:52px;color:rgba(170,255,0,0.55);letter-spacing:8px;text-align:center}
 </style>
 </head>
 <body>
@@ -400,42 +453,28 @@ body{margin:0;padding:0;background:#0a0a0a}
   <div class="sc">09 / 10</div>
 </div>
 
-<!-- S10: SIGN-OFF — carousel match + platform symbols -->
+<!-- S10: SIGN-OFF -->
 <div class="slide {{S10_ACTIVE}}" id="s10">
-  <div class="ghost-trs">TRS</div>
-  <div class="content">
-    <div class="third">THIRD</div>
-    <div class="rail">RAIL</div>
-    <div class="sports">Sports</div>
-    <div class="rule"></div>
-    <div class="tag">Sport. Decoded.</div>
-    <div class="handle">@thirdrailsports</div>
-    <div class="so-line">{{SO_LINE}}</div>
-    <!-- Platform follow section -->
-    <div class="follow-rule"></div>
-    <div class="follow-label">Follow for more</div>
-    <div class="platforms">
-      <div class="platform-item">
-        <div class="platform-icon">📸</div>
-        <div class="platform-name">IG</div>
-      </div>
-      <div class="platform-item">
-        <div class="platform-icon">▶️</div>
-        <div class="platform-name">YT</div>
-      </div>
-      <div class="platform-item">
-        <div class="platform-icon">𝕏</div>
-        <div class="platform-name">X</div>
-      </div>
-      <div class="platform-item">
-        <div class="platform-icon">🧵</div>
-        <div class="platform-name">Threads</div>
-      </div>
-      <div class="platform-item">
-        <div class="platform-icon">🎵</div>
-        <div class="platform-name">TikTok</div>
-      </div>
+  <!-- Ghost: absolute center of canvas, behind everything -->
+  <div class="so-ghost">TRS</div>
+  <!-- Brand block: centered within ghost letterforms -->
+  <div class="so-wrap">
+    <div class="so-content">
+      <div class="so-third">THIRD</div>
+      <div class="so-rail">RAIL</div>
+      <div class="so-sports">SPORTS</div>
+      <div class="so-rule"></div>
+      <div class="so-tag">SPORT. DECODED.</div>
+      <div class="so-handle">@THIRDRAILSPORTS</div>
+      <!-- SO_LINE: clear breathing room below brand block -->
+      <div class="so-line">{{SO_LINE}}</div>
     </div>
+  </div>
+  <!-- Platform block: pulled up from bottom edge -->
+  <div class="platform-block">
+    <div class="platform-rule"></div>
+    <div class="platform-label">Follow for more</div>
+    <div class="platform-row">FB · YT · IG · X · THREADS · TIKTOK</div>
   </div>
   <div class="sc" style="color:rgba(170,255,0,0.1)">10 / 10</div>
 </div>
