@@ -95,7 +95,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
 #s4{background:#0a0a0a;position:relative}
 #s4 .ghost{font-size:480px;color:{{PRIMARY_COLOR}};right:40px;bottom:40px}
 #s4 .eyebrow{font-size:32px;letter-spacing:12px;color:#AAFF00;text-transform:uppercase;font-weight:700;margin-bottom:40px}
-#s4 .headline{font-family:'Bebas Neue',sans-serif;font-size:124px;line-height:0.9;color:#fff;letter-spacing:-1px;margin-bottom:48px}
+#s4 .headline{font-family:'Bebas Neue',sans-serif;font-size:88px;line-height:0.9;color:#fff;letter-spacing:-1px;margin-bottom:48px}
 #s4 .headline span{color:#AAFF00}
 #s4 .comparison{display:flex;align-items:center;justify-content:space-between;padding:48px 0;border-top:2px solid #222;border-bottom:2px solid #222;margin-bottom:48px}
 #s4 .comp-val{font-family:'Bebas Neue',sans-serif;font-size:220px;line-height:1;color:#AAFF00;letter-spacing:-10px}
@@ -174,6 +174,12 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
 
 /* ══ SLIDE 10: SIGN-OFF ══ */
 #s10{background:#0a0a0a;position:relative}
+#s10 .so-unit{
+  position:absolute;
+  top:0;left:0;right:0;
+  bottom:280px;
+  z-index:2;
+}
 #s10 .so-ghost{
   position:absolute;
   font-family:'Bebas Neue',sans-serif;
@@ -192,8 +198,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
 }
 #s10 .so-wrap{
   position:absolute;
-  top:0;left:0;right:0;
-  bottom:280px;
+  inset:0;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -446,16 +451,18 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
 
 <!-- S10: SIGN-OFF -->
 <div class="slide {{S10_ACTIVE}}" id="s10">
-  <div class="so-ghost">TRS</div>
-  <div class="so-wrap">
-    <div class="so-content">
-      <div class="so-third">THIRD</div>
-      <div class="so-rail">RAIL</div>
-      <div class="so-sports">SPORTS</div>
-      <div class="so-rule"></div>
-      <div class="so-tag">SPORT. DECODED.</div>
-      <div class="so-handle">@THIRDRAILSPORTS</div>
-      <div class="so-line">{{SO_LINE}}</div>
+  <div class="so-unit">
+    <div class="so-ghost">TRS</div>
+    <div class="so-wrap">
+      <div class="so-content">
+        <div class="so-third">THIRD</div>
+        <div class="so-rail">RAIL</div>
+        <div class="so-sports">SPORTS</div>
+        <div class="so-rule"></div>
+        <div class="so-tag">SPORT. DECODED.</div>
+        <div class="so-handle">@THIRDRAILSPORTS</div>
+        <div class="so-line">{{SO_LINE}}</div>
+      </div>
     </div>
   </div>
   <div class="platform-block">
