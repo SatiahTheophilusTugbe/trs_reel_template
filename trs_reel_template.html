@@ -34,10 +34,11 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
 
 /* GLOBAL CHROME */
 .bug{position:absolute;top:72px;left:64px;z-index:20;font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:10px;color:#AAFF00}
+.competition{position:absolute;top:72px;right:64px;z-index:20;font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:6px;color:rgba(255,255,255,0.4)}
 .sc{position:absolute;bottom:56px;right:64px;font-family:'Bebas Neue',sans-serif;font-size:52px;color:rgba(170,255,0,0.18);letter-spacing:4px;z-index:20;line-height:1}
 
 /* THESIS BADGE */
-.thesis-badge{position:absolute;top:64px;right:64px;z-index:20;background:rgba(170,255,0,0.12);border:2px solid rgba(170,255,0,0.5);padding:16px 32px;font-family:'Inter',sans-serif;font-size:24px;letter-spacing:6px;color:#AAFF00;font-weight:700;text-transform:uppercase}
+.thesis-badge{position:absolute;top:140px;right:64px;z-index:20;background:rgba(170,255,0,0.12);border:2px solid rgba(170,255,0,0.5);padding:16px 32px;font-family:'Inter',sans-serif;font-size:24px;letter-spacing:6px;color:#AAFF00;font-weight:700;text-transform:uppercase}
 
 /* GHOST */
 .ghost{position:absolute;font-family:'Bebas Neue',sans-serif;opacity:0.10;right:40px;bottom:40px;letter-spacing:-16px;pointer-events:none;line-height:1;z-index:1}
@@ -260,6 +261,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="bg-dk"></div>
   <div class="ghost">{{PRIMARY_CODE}}</div>
   <div class="bug">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="thesis-badge">{{THESIS_TYPE}}</div>
   <div class="content">
     <div class="eyebrow">{{HOOK_EYEBROW}}</div>
@@ -275,6 +277,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="accent-top" style="background:#AAFF00"></div>
   <div class="ghost" style="font-size:560px;color:{{PRIMARY_COLOR}};opacity:0.10">{{EV1_NUMBER}}</div>
   <div class="bug">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{CLAIM_EYEBROW}}</div>
     <div class="vbar"></div>
@@ -290,6 +293,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="edge-l"></div>
   <div class="ghost" style="font-size:480px;color:{{PRIMARY_COLOR}}">{{EV1_NUMBER}}</div>
   <div class="bug" style="left:96px">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{EV1_EYEBROW}}</div>
     <div class="stat-num">{{EV1_NUMBER}}</div>
@@ -307,6 +311,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="accent-top" style="background:{{PRIMARY_COLOR}}"></div>
   <div class="ghost" style="font-size:480px;color:{{PRIMARY_COLOR}}">{{EV2_COMPARISON_A}}</div>
   <div class="bug">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{EV2_EYEBROW}}</div>
     <div class="headline">{{EV2_HEADLINE_1}}<br><span>{{EV2_HEADLINE_2}}</span></div>
@@ -331,6 +336,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div style="position:absolute;top:0;left:0;right:0;height:480px;background:linear-gradient(180deg,{{PRIMARY_COLOR}} 0%,rgba(0,0,0,0) 100%);opacity:0.22"></div>
   <div class="ghost" style="font-size:560px;color:{{PRIMARY_COLOR}};opacity:0.12">{{EV3_NUMBER}}</div>
   <div class="bug">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{EV3_EYEBROW}}</div>
     <div class="stat-num">{{EV3_NUMBER}}</div>
@@ -346,6 +352,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="edge-r"></div>
   <div class="ghost" style="font-size:480px;color:#AAFF00;opacity:0.07;right:56px">BUT</div>
   <div class="bug">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{COUNTER_EYEBROW}}</div>
     <div class="vbar"></div>
@@ -363,6 +370,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="bg-overlay"></div>
   <div class="ghost" style="font-size:480px;color:#AAFF00;opacity:0.08">{{REBUTTAL_STAT}}</div>
   <div class="bug">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{REBUTTAL_EYEBROW}}</div>
     <div class="stat-num">{{REBUTTAL_STAT}}</div>
@@ -379,6 +387,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="edge-l"></div>
   <div class="ghost" style="font-size:320px;color:{{PRIMARY_COLOR}};opacity:0.10;letter-spacing:-8px">{{STANDING_EYEBROW}}</div>
   <div class="bug" style="left:96px">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{STANDING_EYEBROW}}</div>
     <div class="headline">{{STANDING_HEADLINE}}<br><span>{{STANDING_VOLT}}</span></div>
@@ -439,6 +448,7 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="accent-top"></div>
   <div class="ghost-trs">TRS</div>
   <div class="bug">SPORT. DECODED.</div>
+  <div class="competition">{{COMPETITION}}</div>
   <div class="content">
     <div class="eyebrow">{{VERDICT_EYEBROW}}</div>
     <div class="vbar"></div>
