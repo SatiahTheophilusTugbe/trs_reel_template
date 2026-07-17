@@ -70,6 +70,10 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
 #s1 .hook{font-family:'Bebas Neue',sans-serif;font-size:168px;line-height:0.88;color:#fff;letter-spacing:-2px;margin-bottom:52px;text-align:center}
 #s1 .hook span{color:#AAFF00}
 #s1 .vbar{width:120px;height:8px;background:#AAFF00;margin:0 auto}
+#s1 .player-badge{display:none;width:328px;height:328px;border-radius:50%;overflow:hidden;position:relative;flex-shrink:0;margin-bottom:72px;box-shadow:0 0 0 5px rgba(170,255,0,0.9),0 0 0 14px rgba(170,255,0,0.14),0 28px 56px rgba(0,0,0,0.45)}
+#s1 .player-badge.active{display:block}
+#s1 .player-badge-img{position:absolute;inset:0;background-size:cover;background-position:center top;filter:contrast(1.12) brightness(1.02)}
+#s1 .player-badge-tint{position:absolute;inset:0;background:{{PRIMARY_COLOR}};mix-blend-mode:color;opacity:0.9}
 
 /* ══ SLIDE 2: CLAIM ══ */
 #s2{background:#0a0a0a;position:relative}
@@ -264,6 +268,10 @@ body{margin:0;padding:0;background:#0a0a0a;display:flex;justify-content:center;a
   <div class="competition">{{COMPETITION}}</div>
   <div class="thesis-badge">{{THESIS_TYPE}}</div>
   <div class="content">
+    <div class="player-badge {{PLAYER_BADGE_ACTIVE}}">
+      <div class="player-badge-img" style="background-image:url('{{PLAYER_IMAGE_URL}}')"></div>
+      <div class="player-badge-tint"></div>
+    </div>
     <div class="eyebrow">{{HOOK_EYEBROW}}</div>
     <div class="hook">{{HOOK_LINE_1}}<br><span>{{HOOK_LINE_2}}</span><br>{{HOOK_LINE_3}}</div>
     <div class="vbar"></div>
